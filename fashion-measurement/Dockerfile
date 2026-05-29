@@ -1,8 +1,4 @@
-FROM php:8.2-cli
-
-WORKDIR /app
-
-COPY . .
+FROM php:8.4-cli
 
 RUN apt-get update && apt-get install -y \
     unzip \
@@ -15,7 +11,11 @@ RUN docker-php-ext-install zip
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-RUN composer install
+WORKDIR /app
+
+COPY . .
+
+RUN composer install --no-dev --optimize-autoloader
 
 EXPOSE 10000
 
