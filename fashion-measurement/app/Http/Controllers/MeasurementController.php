@@ -64,7 +64,7 @@ class MeasurementController extends Controller
 
         . "CLIENT DETAILS\n"
         . "Name: {$data['name']}\n"
-        . "Phone number: {$data['phone number']}\n\n"
+        . "Phone number: {$data['phone']}\n\n"
 
         . "UPPER BODY\n"
         . "Bust: {$data['bust']} cm\n"
